@@ -141,7 +141,7 @@ namespace ItemManagement
             var connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
 
             var SelectedItem = txtId.Text;
-            if (SelectedItem == null)
+            if (SelectedItem == "")
             {
                 MessageBox.Show("Please select an item to delete");
                 return;
