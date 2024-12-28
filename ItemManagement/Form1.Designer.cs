@@ -72,6 +72,7 @@
             txtId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtId.Location = new Point(140, 103);
             txtId.Name = "txtId";
+            txtId.ReadOnly = true;
             txtId.Size = new Size(206, 34);
             txtId.TabIndex = 2;
             // 
