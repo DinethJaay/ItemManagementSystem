@@ -135,5 +135,41 @@ namespace ItemManagement
                 }
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            var SelectedItem = txtId.Text;
+            if (SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item to delete");
+                return;
+            }
+            else
+            {
+                var query = "DELETE FROM Item WHERE Id=@id";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@id", Convert.ToInt32(SelectedItem));
+
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            MessageBox.Show(rowsAffected > 0 ? "Item Deleted Successfully !" : "Failed to delete item.");
+                            DisplayItem();
+                            ClearValues();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

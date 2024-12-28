@@ -41,6 +41,7 @@
             itemGridView = new DataGridView();
             label5 = new Label();
             btnUpdate = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)itemGridView).BeginInit();
             SuspendLayout();
             // 
@@ -104,7 +105,7 @@
             // btnSave
             // 
             btnSave.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnSave.Location = new Point(23, 331);
+            btnSave.Location = new Point(140, 354);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(94, 29);
             btnSave.TabIndex = 6;
@@ -116,7 +117,7 @@
             // 
             btnClear.BackColor = SystemColors.ButtonHighlight;
             btnClear.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClear.Location = new Point(252, 331);
+            btnClear.Location = new Point(252, 319);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(94, 29);
             btnClear.TabIndex = 7;
@@ -163,13 +164,25 @@
             // 
             btnUpdate.BackColor = SystemColors.ButtonHighlight;
             btnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUpdate.Location = new Point(140, 331);
+            btnUpdate.Location = new Point(140, 319);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(94, 29);
             btnUpdate.TabIndex = 11;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.BackColor = SystemColors.ButtonHighlight;
+            btnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDelete.Location = new Point(252, 354);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 12;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Form1
             // 
@@ -179,6 +192,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
             Controls.Add(btnUpdate);
             Controls.Add(label5);
             Controls.Add(itemGridView);
@@ -215,5 +229,6 @@
         private DataGridView itemGridView;
         private Label label5;
         private Button btnUpdate;
+        private Button btnDelete;
     }
 }
