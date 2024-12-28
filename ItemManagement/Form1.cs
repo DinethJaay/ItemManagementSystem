@@ -5,6 +5,7 @@ namespace ItemManagement
 {
     public partial class Form1 : Form
     {
+        String connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
         public Form1()
         {
             InitializeComponent();
@@ -12,8 +13,6 @@ namespace ItemManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
-
             var query = "INSERT INTO Item(name,price) Values(@name,@price)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -52,7 +51,7 @@ namespace ItemManagement
         }
         private void DisplayItem()
         {
-            string connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
+           
 
             string query = "Select * from Item";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -111,7 +110,6 @@ namespace ItemManagement
         {
             var id = Convert.ToInt32(txtId.Text);
             var query = "UPDATE Item SET name=@name, price=@price WHERE Id=@id";
-            var connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -137,9 +135,7 @@ namespace ItemManagement
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var connectionString = "Server=MSI\\SQLEXPRESS;Database=ItemManagement;Trusted_Connection=True;TrustServerCertificate=True;";
-
+        { 
             var SelectedItem = txtId.Text;
             if (SelectedItem == "")
             {
