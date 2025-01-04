@@ -53,7 +53,7 @@ namespace ItemManagement
         {
            
 
-            string query = "Select * from Item";
+            string query = "Select * from Item where deletedAt = null";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -144,7 +144,8 @@ namespace ItemManagement
             }
             else
             {
-                var query = "DELETE FROM Item WHERE Id=@id";
+                //var query = "DELETE FROM Item WHERE Id=@id";
+                var query = "Update Item set DeletedAt = @date Where Id=@id";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     try
